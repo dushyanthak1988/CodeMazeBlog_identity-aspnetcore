@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TestMVC_2.Data;
 using TestMVC_2.Extensions;
+using TestMVC_2.Factory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddIdentity<User,IdentityRole>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.ConfigureApplicationCookie(o => o.LoginPath = "/Authentication/Login");
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<User>, CustomClaimsFactory>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

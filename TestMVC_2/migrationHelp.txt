@@ -400,3 +400,79 @@ Microsoft.EntityFrameworkCore.Database.Command[20101]
       VALUES (N'20221127080408_CreatingIdentityScheme', N'6.0.10');
 Done.
 PM> 
+
+PM> Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection
+Restoring packages for C:\Proj\TestMVC_2\TestMVC_2\TestMVC_2.csproj...
+  GET https://api.nuget.org/v3-flatcontainer/automapper.extensions.microsoft.dependencyinjection/index.json
+  OK https://api.nuget.org/v3-flatcontainer/automapper.extensions.microsoft.dependencyinjection/index.json 887ms
+  GET https://api.nuget.org/v3-flatcontainer/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg 45ms
+Installed AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.0 from https://api.nuget.org/v3/index.json with content hash XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==.
+Installing NuGet package AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.0.
+Writing assets file to disk. Path: C:\Proj\TestMVC_2\TestMVC_2\obj\project.assets.json
+Restored C:\Proj\TestMVC_2\TestMVC_2\TestMVC_2.csproj (in 2.37 sec).
+Successfully uninstalled 'Microsoft.CSharp 4.5.0' from TestMVC_2
+Successfully installed 'AutoMapper 12.0.0' to TestMVC_2
+Successfully installed 'AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.0' to TestMVC_2
+Successfully installed 'Microsoft.CSharp 4.7.0' to TestMVC_2
+Executing nuget actions took 209 ms
+Time Elapsed: 00:00:04.1626562
+PM> Add-Migration AddLoginAndRegister
+Build started...
+Build succeeded.
+Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.10 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+To undo this action, use Remove-Migration.
+PM>  Update-Database
+Build started...
+Build succeeded.
+Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.10 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20221127124909_AddLoginAndRegister'.
+Applying migration '20221127124909_AddLoginAndRegister'.
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE [AspNetUsers] ADD [FirstName] nvarchar(max) NOT NULL DEFAULT N'';
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      ALTER TABLE [AspNetUsers] ADD [LastName] nvarchar(max) NOT NULL DEFAULT N'';
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+          SET IDENTITY_INSERT [AspNetRoles] ON;
+      INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+      VALUES (N'40f2b7ec-90c7-447d-9734-e7021c422c1f', N'22c92f52-702e-40b2-8e9d-68f5a00a4dab', N'Visitor', N'VISITOR');
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+          SET IDENTITY_INSERT [AspNetRoles] OFF;
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+          SET IDENTITY_INSERT [AspNetRoles] ON;
+      INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+      VALUES (N'a38101bf-1e84-4cd1-9272-01f7e09b18b0', N'943d7cd6-6325-4e8a-bf5e-1323b0cced26', N'Administrator', N'ADMINISTRATOR');
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+          SET IDENTITY_INSERT [AspNetRoles] OFF;
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+      VALUES (N'20221127124909_AddLoginAndRegister', N'6.0.10');
+Done.
+PM> 
